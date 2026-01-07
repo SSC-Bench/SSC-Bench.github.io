@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Production build (will be in dist/)
+dist/
+build/
+
+# Development
+.DS_Store
+.env
+.env.local
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# Old template files (keep for reference if needed, or delete)
+# Uncomment the next lines to ignore old HTML template
+# index.html
+# static/
+# paper_logo.png
