@@ -1,11 +1,22 @@
 # SSC-Bench Project Page
 
+🌐 **Live Site**: [https://ssc-bench.github.io](https://ssc-bench.github.io)
+
 A modern, academic project page for the paper "Lost in Space: Evaluating Spatial Structural Competence via Code-as-Reasoning in SSC-Bench".
+
+## ✨ Features
+
+- 🎨 Modern, minimal design inspired by Nerfies
+- 📱 Fully responsive (mobile, tablet, desktop)
+- ⚡ Smooth scroll animations with Framer Motion
+- 🎯 Dual-path methodology visualization
+- 📊 Interactive results leaderboard
+- 📋 One-click BibTeX citation copy
 
 ## Tech Stack
 
 - **Framework**: React (Vite)
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
 - **Animation**: Framer Motion
 - **Icons**: Lucide React
 - **Deployment**: GitHub Pages
@@ -62,27 +73,27 @@ react-app/
 
 ### Adding Images
 
-Place your images in `public/assets/` and reference them as `/assets/filename.png`.
+**⚠️ IMPORTANT**: Add your teaser image as `react-app/public/assets/teaser.png`
 
-**IMPORTANT**: Add your teaser image as `react-app/public/assets/teaser.png`.
+Place other images in `public/assets/` and reference them as `/assets/filename.png`.
 
 ### Updating Content
 
-- **Authors & Affiliations**: Edit the arrays in `react-app/src/components/Hero.jsx`
-- **Abstract**: Edit the text in `react-app/src/components/Abstract.jsx`
-- **Results Data**: Edit the `resultsData` array in `react-app/src/components/Results.jsx`
-- **Citation**: Edit the `bibtex` string in `react-app/src/components/Citation.jsx`
+- **Authors & Affiliations**: Edit `react-app/src/components/Hero.jsx` (lines 6-22)
+- **Paper Links**: Update arXiv, GitHub, HuggingFace URLs in `react-app/src/components/Hero.jsx` (lines 56-82)
+- **Abstract**: Edit `react-app/src/components/Abstract.jsx`
+- **Results Data**: Add more models to the table in `react-app/src/components/Results.jsx` (lines 9-54)
+- **BibTeX**: Update with actual arXiv ID in `react-app/src/components/Citation.jsx` (lines 6-11)
 
 ### Changing Colors
 
-Edit `tailwind.config.js` to customize the color scheme.
+Edit `react-app/tailwind.config.js` to customize the color scheme (currently uses blue theme).
 
-## GitHub Pages Setup
+## 🚀 Deployment
 
-1. Go to your repository settings
-2. Navigate to **Pages** section
-3. Under **Source**, select **GitHub Actions**
-4. Push to main branch to trigger deployment
+This site is automatically deployed to GitHub Pages when you push to the `main` branch.
+
+**Deployment URL**: https://ssc-bench.github.io/
 
 ## License
 
