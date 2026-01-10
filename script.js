@@ -62,10 +62,77 @@
         }
     }
 
+    // ========== Parallax Scroll Effect ==========
+    function handleParallax() {
+        const scrolled = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        // 1. Figure Image Zoom Effect
+        const figureImage = document.querySelector('.figure-image');
+        if (figureImage) {
+            const figureRect = figureImage.getBoundingClientRect();
+            const figureMiddle = figureRect.top + figureRect.height / 2;
+            const distanceFromCenter = Math.abs(windowHeight / 2 - figureMiddle);
+            const maxDistance = windowHeight;
+            const scale = 0.95 + (1 - Math.min(distanceFromCenter / maxDistance, 1)) * 0.1;
+
+            // Apply zoom when in view
+            if (figureRect.top < windowHeight && figureRect.bottom > 0) {
+                figureImage.style.transform = `scale(${scale})`;
+                figureImage.classList.add('parallax-active');
+            } else {
+                figureImage.classList.remove('parallax-active');
+            }
+        }
+
+        // 2. Stat Cards Floating Effect
+        const statCards = document.querySelectorAll('.stat-card');
+        statCards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const speed = 0.05 * (index + 1);
+                const yPos = -(scrolled * speed);
+                card.style.transform = `translateY(${yPos}px)`;
+            }
+        });
+
+        // 3. Path Icons Gentle Float
+        const pathIcons = document.querySelectorAll('.path-icon');
+        pathIcons.forEach((icon, index) => {
+            const rect = icon.getBoundingClientRect();
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const offset = Math.sin(scrolled * 0.002 + index) * 5;
+                icon.style.transform = `translateY(${offset}px)`;
+            }
+        });
+
+        // 4. Finding Cards Stagger Effect
+        const findingCards = document.querySelectorAll('.finding-card');
+        findingCards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const cardMiddle = rect.top + rect.height / 2;
+
+            if (rect.top < windowHeight && rect.bottom > 0) {
+                const distanceFromCenter = (windowHeight / 2 - cardMiddle) / windowHeight;
+                const rotate = distanceFromCenter * 2;
+                card.style.transform = `perspective(1000px) rotateX(${rotate}deg)`;
+            }
+        });
+    }
+
     // ========== Scroll Event Listener ==========
     let scrollTimeout;
+    let ticking = false;
+
     window.addEventListener('scroll', function() {
-        handleNavScroll();
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                handleNavScroll();
+                handleParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
 
         // Debounce active link update
         clearTimeout(scrollTimeout);

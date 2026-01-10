@@ -234,6 +234,13 @@ body {
     color: var(--primary-color);
     line-height: 1;
     margin-bottom: 0.5rem;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.stat-card:hover .stat-number {
+    transform: scale(1.15);
 }
 
 .stat-card-highlight .stat-number {
@@ -282,6 +289,8 @@ body {
 .figure-container {
     margin: 3rem 0;
     text-align: center;
+    perspective: 1000px;
+    overflow: hidden;
 }
 
 .figure-image {
@@ -294,6 +303,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: scale(0.95);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.figure-image.parallax-active {
+    transform: scale(1.05);
 }
 
 .figure-caption {
@@ -341,6 +357,13 @@ body {
 .path-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.path-card:hover .path-icon {
+    transform: translateY(-8px) scale(1.1);
 }
 
 .path-title {
