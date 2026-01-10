@@ -114,6 +114,25 @@ body {
 .hero {
     padding: 6rem 0 4rem;
     background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
+    animation: heroGlow 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes heroGlow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(10%, 10%) scale(1.1); }
 }
 
 .hero-content {
@@ -604,18 +623,41 @@ body {
     background: white;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.download-card:hover::before {
+    left: 100%;
 }
 
 .download-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
 .download-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.download-card:hover .download-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .download-title {

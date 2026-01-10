@@ -74,7 +74,7 @@
             const figureMiddle = figureRect.top + figureRect.height / 2;
             const distanceFromCenter = Math.abs(windowHeight / 2 - figureMiddle);
             const maxDistance = windowHeight;
-            const scale = 0.95 + (1 - Math.min(distanceFromCenter / maxDistance, 1)) * 0.1;
+            const scale = 0.9 + (1 - Math.min(distanceFromCenter / maxDistance, 1)) * 0.2;
 
             // Apply zoom when in view
             if (figureRect.top < windowHeight && figureRect.bottom > 0) {
@@ -101,8 +101,9 @@
         pathIcons.forEach((icon, index) => {
             const rect = icon.getBoundingClientRect();
             if (rect.top < windowHeight && rect.bottom > 0) {
-                const offset = Math.sin(scrolled * 0.002 + index) * 5;
-                icon.style.transform = `translateY(${offset}px)`;
+                const offset = Math.sin(scrolled * 0.003 + index) * 10;
+                const rotate = Math.cos(scrolled * 0.002 + index) * 3;
+                icon.style.transform = `translateY(${offset}px) rotate(${rotate}deg)`;
             }
         });
 
