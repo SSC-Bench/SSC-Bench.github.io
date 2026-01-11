@@ -33,31 +33,47 @@ const Benchmark = () => {
             </p>
           </div>
 
-          {/* Overview Figure */}
+          {/* Figure 1: Framework Concept */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-center"
           >
-            <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-xl min-h-[400px] flex items-center justify-center">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
               <img
-                src="/assets/fig_overview.png"
-                alt="SSC-Bench Framework Overview"
-                className="max-w-full h-auto"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'flex';
-                }}
+                src="/assets/figure1-framework.png"
+                alt="Figure 1: Conceptualizing Spatial Structural Competence (SSC) through a dual-path diagnostic paradigm"
+                className="w-full h-auto"
               />
-              <div className="hidden flex-col items-center justify-center p-12 text-gray-500">
-                <ImageIcon className="w-16 h-16 mb-4" />
-                <p className="text-lg">Framework Overview Diagram</p>
-              </div>
             </div>
-            <p className="mt-4 text-sm text-gray-600 italic max-w-4xl mx-auto">
-              Framework overview: Dual-path diagnostic paradigm for evaluating SSC through
-              Image Reproduction (SSU) and Code-as-Reasoning Line Completion (SSR).
+            <p className="mt-4 text-sm text-gray-600 italic max-w-4xl mx-auto leading-relaxed">
+              <span className="font-semibold text-gray-800">Figure 1:</span> Conceptualizing Spatial Structural Competence (SSC) through a dual-path diagnostic paradigm.
+              The framework decomposes SSC into (1) Spatial Structural Understanding (SSU) requiring MLLMs to translate
+              perceptual orthographic images into structured symbolic representations, and (2) Spatial Structural Reasoning (SSR)
+              demanding logical synthesis of missing geometric elements via code-as-reasoning.
+            </p>
+          </motion.div>
+
+          {/* Figure 2: Pipeline Overview */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-center mt-12"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Evaluation Pipeline</h3>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+              <img
+                src="/assets/figure2-pipeline.png"
+                alt="Figure 2: SSC-Bench evaluation pipeline overview"
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="mt-4 text-sm text-gray-600 italic max-w-4xl mx-auto leading-relaxed">
+              <span className="font-semibold text-gray-800">Figure 2:</span> Overview of SSC-Bench. Stage 1: 3D-to-2D input generation.
+              Stage 2: Dual-path evaluation of SSU (reproduction) and SSR (completion).
+              Stage 3: Automated scoring and geometric verification via confusion matrices and completion rates.
             </p>
           </motion.div>
 
