@@ -31,7 +31,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-col items-center gap-6"
           >
             <a
               href="https://github.com/SSC-Bench/ssc-bench-data"
@@ -44,6 +44,19 @@ const Hero = () => {
               </svg>
               <span>View Dataset & Code</span>
             </a>
+
+            {/* Tags */}
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <span className="px-4 py-1.5 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">
+                ACL 2026 Submission
+              </span>
+              <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">
+                Dual-Path Evaluation
+              </span>
+              <span className="px-4 py-1.5 bg-green-100 text-green-700 text-sm font-medium rounded-full">
+                13 MLLMs Tested
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

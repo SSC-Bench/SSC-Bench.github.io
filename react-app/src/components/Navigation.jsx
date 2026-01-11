@@ -25,20 +25,6 @@ const Navigation = () => {
       } border-b border-gray-200`}
     >
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        {/* Tags Row */}
-        <div className="flex items-center justify-center gap-3 pt-4 pb-2">
-          <span className="px-4 py-1.5 bg-blue-100 text-blue-700 text-sm font-medium rounded-full">
-            ACL 2026 Submission
-          </span>
-          <span className="px-4 py-1.5 bg-purple-100 text-purple-700 text-sm font-medium rounded-full">
-            Dual-Path Evaluation
-          </span>
-          <span className="px-4 py-1.5 bg-green-100 text-green-700 text-sm font-medium rounded-full">
-            13 MLLMs Tested
-          </span>
-        </div>
-
-        {/* Navigation Row */}
         <div className="flex items-center justify-between py-4">
           <div className="text-2xl font-bold text-primary-600 tracking-tight">
             SSC-Bench
