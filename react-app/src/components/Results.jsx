@@ -192,30 +192,6 @@ const Results = () => {
           <p className="text-center text-sm text-gray-500 italic">
             Acc = Accuracy, F1 = F1 Score, CR = Completion Rate (Code-as-Reasoning path)
           </p>
-
-          {/* Scaling Law Analysis */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-16"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
-              Scaling Law Analysis
-            </h3>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-              <img
-                src="/assets/figure3-scaling.png"
-                alt="Figure 3: Scaling laws of MLLM architectures on SSC-Bench"
-                className="w-full h-auto"
-              />
-            </div>
-            <p className="mt-4 text-sm text-gray-600 italic max-w-4xl mx-auto leading-relaxed">
-              <span className="font-semibold text-gray-800">Figure 3:</span> Scaling laws of MLLM architectures on the SSC-Bench Image-to-Code reproduction track.
-              Average Accuracy and F1 score for three-view reconstruction tasks plotted against model parameters on a log scale.
-              Performance scales consistently with parameter size across diverse model families, though the strength of this trend is architecture-dependent.
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </section>
