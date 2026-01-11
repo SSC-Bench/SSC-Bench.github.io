@@ -1,58 +1,33 @@
 import { motion } from 'framer-motion';
-import { FileText, Github, Database } from 'lucide-react';
-
-const authors = [
-  { name: 'Author 1', affiliation: 1 },
-  { name: 'Author 2', affiliation: 1 },
-  { name: 'Author 3', affiliation: 2 },
-  { name: 'Author 4', affiliation: 1 },
-  { name: 'Author 5', affiliation: 2 },
-];
-
-const affiliations = [
-  'Institution 1',
-  'Institution 2',
-];
+import { Database } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/30 to-white py-20 md:py-32">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+    <section id="overview" className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-24 md:py-32">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary-600/5 via-transparent to-transparent animate-pulse-slow"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 max-w-5xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight text-balance">
-            Lost in Space: Evaluating{' '}
-            <span className="text-primary-600">Spatial Structural Competence</span>{' '}
-            via Code-as-Reasoning in SSC-Bench
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Lost in Space
           </h1>
 
-          {/* Authors */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6 text-lg text-gray-700">
-            {authors.map((author, idx) => (
-              <span key={idx} className="inline-block">
-                {author.name}
-                <sup className="text-primary-600 ml-1">{author.affiliation}</sup>
-                {idx < authors.length - 1 && <span className="mx-2 text-gray-400">,</span>}
-              </span>
-            ))}
-          </div>
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-8 leading-snug">
+            Evaluating Spatial Structural Competence via Code-as-Reasoning
+          </h2>
 
-          {/* Affiliations */}
-          <div className="flex flex-col items-center gap-2 mb-10 text-gray-600">
-            {affiliations.map((affiliation, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <sup className="text-primary-600">{idx + 1}</sup>
-                <span>{affiliation}</span>
-              </div>
-            ))}
-          </div>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto mb-12">
+            A systematic benchmark for evaluating Spatial Structural Competence (SSC) through
+            orthographic three-view reasoning with verifiable, programmatic outputs.
+          </p>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,31 +35,13 @@ const Hero = () => {
             className="flex flex-wrap justify-center gap-4"
           >
             <a
-              href="https://arxiv.org/abs/xxxx.xxxxx"
+              href="YOUR_GITHUB_DATA_REPO_URL"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-medium rounded-full hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-semibold text-lg rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
-              <FileText className="w-5 h-5" />
-              Paper (arXiv)
-            </a>
-            <a
-              href="https://github.com/SSC-Bench/SSC-Bench"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-medium rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <Github className="w-5 h-5" />
-              Code (GitHub)
-            </a>
-            <a
-              href="https://huggingface.co/datasets/SSC-Bench"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-yellow-500 text-gray-900 font-medium rounded-full hover:bg-yellow-400 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <Database className="w-5 h-5" />
-              Data (HuggingFace)
+              <Database className="w-6 h-6" />
+              Dataset & Code (GitHub)
             </a>
           </motion.div>
         </motion.div>

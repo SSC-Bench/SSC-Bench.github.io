@@ -1,1 +1,1 @@
-# Add your overview figure here as fig_overview.png
+Placeholder for teaser.png - Please replace with actual image
