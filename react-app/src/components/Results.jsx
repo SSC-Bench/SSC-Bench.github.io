@@ -14,15 +14,6 @@ const resultsData = [
     cr: '0.00%',
   },
   {
-    model: 'Gemini3 Pro',
-    type: 'Closed',
-    fv: { acc: 0.333, f1: 0.500 },
-    lv: { acc: 0.833, f1: 0.909 },
-    tv: { acc: 0.600, f1: 0.750 },
-    avg: { acc: 0.589, f1: 0.720 },
-    cr: '0.00%',
-  },
-  {
     model: 'Qwen2.5-72B-Instruct',
     type: 'Open',
     fv: { acc: 0.750, f1: 0.857 },
@@ -32,12 +23,66 @@ const resultsData = [
     cr: '0.00%',
   },
   {
+    model: 'Qwen2.5-14B-Instruct',
+    type: 'Open',
+    fv: { acc: 0.500, f1: 0.667 },
+    lv: { acc: 0.667, f1: 0.800 },
+    tv: { acc: 0.778, f1: 0.875 },
+    avg: { acc: 0.648, f1: 0.781 },
+    cr: '0.00%',
+  },
+  {
     model: 'InternVL3.5-241B',
     type: 'Open',
     fv: { acc: 0.455, f1: 0.625 },
     lv: { acc: 0.625, f1: 0.769 },
     tv: { acc: 0.778, f1: 0.875 },
     avg: { acc: 0.619, f1: 0.756 },
+    cr: '0.00%',
+  },
+  {
+    model: 'Gemini3 Pro',
+    type: 'Closed',
+    fv: { acc: 0.333, f1: 0.500 },
+    lv: { acc: 0.833, f1: 0.909 },
+    tv: { acc: 0.600, f1: 0.750 },
+    avg: { acc: 0.589, f1: 0.720 },
+    cr: '0.00%',
+  },
+  {
+    model: 'Qwen3-VL-235B',
+    type: 'Open',
+    fv: { acc: 0.444, f1: 0.615 },
+    lv: { acc: 0.500, f1: 0.667 },
+    tv: { acc: 0.500, f1: 0.667 },
+    avg: { acc: 0.481, f1: 0.650 },
+    cr: '0.00%',
+  },
+  {
+    model: 'Qwen3-MAX',
+    type: 'Closed',
+    fv: { acc: 0.571, f1: 0.727 },
+    lv: { acc: 0.400, f1: 0.571 },
+    tv: { acc: 0.333, f1: 0.500 },
+    avg: { acc: 0.435, f1: 0.600 },
+    cr: '0.00%',
+  },
+  {
+    model: 'InternVL3-78B',
+    type: 'Open',
+    fv: { acc: 0.263, f1: 0.417 },
+    lv: { acc: 0.316, f1: 0.480 },
+    tv: { acc: 0.538, f1: 0.700 },
+    avg: { acc: 0.372, f1: 0.532 },
+    cr: '0.00%',
+  },
+  {
+    model: 'Qwen3-Omni-Flash',
+    type: 'Closed',
+    fv: { acc: 0.333, f1: 0.500 },
+    lv: { acc: 0.091, f1: 0.167 },
+    tv: { acc: 0.600, f1: 0.750 },
+    avg: { acc: 0.341, f1: 0.472 },
     cr: '0.00%',
   },
   {
@@ -69,7 +114,7 @@ const Results = () => {
               Results & Leaderboard
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Performance of 13 representative MLLMs on SSC-Bench (showing top 5 models)
+              Performance of 13 representative MLLMs on SSC-Bench (showing top 10 models by average F1 score)
             </p>
           </div>
 
