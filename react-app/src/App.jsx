@@ -4,6 +4,7 @@ import Stats from './components/Stats';
 import Benchmark from './components/Benchmark';
 import KeyFindings from './components/KeyFindings';
 import Results from './components/Results';
+import ScalingLaw from './components/ScalingLaw';
 import Download from './components/Download';
 import Footer from './components/Footer';
 
@@ -16,6 +17,7 @@ function App() {
       <Benchmark />
       <KeyFindings />
       <Results />
+      <ScalingLaw />
       <Download />
       <Footer />
     </div>
