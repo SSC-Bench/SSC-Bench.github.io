@@ -53,11 +53,10 @@ react-app/
 ├── src/
 │   ├── components/       # React components
 │   │   ├── Hero.jsx      # Hero section with title and buttons
-│   │   ├── Teaser.jsx    # Main teaser image and caption
-│   │   ├── Abstract.jsx  # Paper abstract
-│   │   ├── Methodology.jsx # Dual-path methodology
-│   │   ├── Results.jsx   # Results table/leaderboard
-│   │   ├── Citation.jsx  # BibTeX citation
+│   │   ├── Stats.jsx     # Statistics section
+│   │   ├── Benchmark.jsx # Benchmark details
+│   │   ├── KeyFindings.jsx # Key findings section
+│   │   ├── Download.jsx  # Download section
 │   │   └── Footer.jsx    # Footer
 │   ├── lib/
 │   │   └── utils.js      # Utility functions
@@ -73,9 +72,7 @@ react-app/
 
 ### Adding Images
 
-**⚠️ IMPORTANT**: Add your teaser image as `react-app/public/assets/teaser.png`
-
-Place other images in `public/assets/` and reference them as `/assets/filename.png`.
+Place images in `public/assets/` and reference them as `/assets/filename.png`.
 
 ### Updating Content
 

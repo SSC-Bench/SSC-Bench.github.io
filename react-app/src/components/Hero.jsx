@@ -45,28 +45,6 @@ const Hero = () => {
               <span>View Dataset & Code</span>
             </a>
           </motion.div>
-
-          {/* Teaser Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-16 max-w-5xl mx-auto"
-          >
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-              <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/assets/teaser.png"
-                  alt="SSC-Bench Teaser: Three-view orthographic projection examples"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-            <p className="mt-6 text-center text-sm text-gray-600 italic leading-relaxed">
-              Example three-view orthographic projections with verifiable Python code outputs
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </section>
