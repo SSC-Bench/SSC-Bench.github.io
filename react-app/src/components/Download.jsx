@@ -29,8 +29,8 @@ const Download = () => {
       title: 'Technical Report',
       description:
         'Detailed methodology, experimental setup, complete results tables, and comprehensive analysis of all evaluated models.',
-      link: 'YOUR_PAPER_PDF_URL',
-      linkText: 'Download PDF →',
+      link: 'https://github.com/SSC-Bench/ssc-bench-data',
+      linkText: 'View on GitHub →',
     },
   ];
 
