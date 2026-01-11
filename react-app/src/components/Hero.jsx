@@ -35,7 +35,7 @@ const Hero = () => {
             className="flex flex-wrap justify-center gap-4"
           >
             <a
-              href="YOUR_GITHUB_DATA_REPO_URL"
+              href="https://github.com/SSC-Bench/ssc-bench-data"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-semibold text-lg rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"

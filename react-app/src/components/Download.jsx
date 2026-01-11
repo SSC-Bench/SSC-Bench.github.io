@@ -13,7 +13,7 @@ const Download = () => {
       title: 'Dataset',
       description:
         '200 high-quality three-view projection cases with ground-truth Python rendering code and spatial reasoning annotations.',
-      link: 'YOUR_GITHUB_DATA_REPO_URL',
+      link: 'https://github.com/SSC-Bench/ssc-bench-data',
       linkText: 'View on GitHub →',
     },
     {
@@ -21,7 +21,7 @@ const Download = () => {
       title: 'Evaluation Code',
       description:
         'Complete evaluation pipeline including metrics computation, visualization tools, and model interface templates.',
-      link: 'YOUR_GITHUB_DATA_REPO_URL',
+      link: 'https://github.com/SSC-Bench/ssc-bench-data',
       linkText: 'View on GitHub →',
     },
     {
