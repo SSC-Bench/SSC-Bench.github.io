@@ -299,6 +299,54 @@ const Results = () => {
               Showing results with CVC-CoT (Cross-View Constraint Chain-of-Thought) prompting
             </motion.p>
           )}
+
+          {/* Figure 4: Task 1 Accuracy Bar Chart */}
+          {activeTab === 'task1' && (
+            <motion.div
+              key="fig4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
+            >
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+                <img
+                  src="/assets/figure4-task1-results.png"
+                  alt="Figure 4: Comparison of Task 1 accuracy across models under Basic Prompt and CVC-CoT"
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
+                <span className="font-semibold text-gray-700">Figure 4:</span> Task 1 accuracy for all nine models under Basic Prompt and CVC-CoT.
+                The dotted line marks the random-guess baseline (25%). CVC-CoT provides notable gains
+                for stronger models (GPT-5.4: 38%→58%, Gemini: 34%→56%) but offers limited benefit for weaker ones.
+              </p>
+            </motion.div>
+          )}
+
+          {/* Figure 5: Qualitative Comparison */}
+          {activeTab === 'task2' && (
+            <motion.div
+              key="fig5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center"
+            >
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+                <img
+                  src="/assets/figure5-qualitative.png"
+                  alt="Figure 5: Qualitative comparison of model outputs on Task 2 under Basic Prompt and CVC-CoT"
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
+                <span className="font-semibold text-gray-700">Figure 5:</span> Qualitative comparison of model responses on a representative Task 2 instance.
+                Gemini 3.1 Pro and GPT-5.4 produce the most structurally faithful reconstructions;
+                CVC-CoT visibly improves topological correctness across most models.
+              </p>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>

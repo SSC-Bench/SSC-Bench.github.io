@@ -106,7 +106,7 @@ const Benchmark = () => {
             </p>
           </div>
 
-          {/* Framework figure */}
+          {/* Figure 1: Teaser / Motivation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.97 }}
@@ -115,14 +115,15 @@ const Benchmark = () => {
           >
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
               <img
-                src="/assets/figure1-framework.png"
-                alt="Figure 1: SSC-Bench moves from end-to-end evaluation to progressive structural reasoning"
+                src="/assets/figure1-teaser.png"
+                alt="Figure 1: Illustration of SSC-Bench — from ambiguous end-to-end evaluation to progressive structural reasoning"
                 className="w-full h-auto"
               />
             </div>
             <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
-              <span className="font-semibold text-gray-700">Figure 1:</span> SSC-Bench moves beyond end-to-end evaluation toward a progressive diagnostic
-              framework for spatial structural reasoning, enabling fine-grained failure attribution.
+              <span className="font-semibold text-gray-700">Figure 1:</span> Standard end-to-end evaluation fails to distinguish error sources and yields only
+              generic failure labels. SSC-Bench advances MLLMs from surface-level perception to deep structural
+              reasoning, producing verifiable coordinate-level outputs.
             </p>
           </motion.div>
 
@@ -189,25 +190,46 @@ const Benchmark = () => {
             </div>
           </div>
 
-          {/* Pipeline figure */}
+          {/* Figure 3: Evaluation Mapping */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.55, duration: 0.6 }}
+            className="text-center"
+          >
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-2xl mx-auto">
+              <img
+                src="/assets/figure3-tasks.png"
+                alt="Figure 3: Evaluation mapping in SSC-Bench — three progressive capability dimensions"
+                className="w-full h-auto"
+              />
+            </div>
+            <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
+              <span className="font-semibold text-gray-700">Figure 3:</span> Evaluation mapping of SSC-Bench. The three tasks correspond to View
+              Correspondence, Structural Externalization, and Deep Structural Reasoning — each probing a
+              distinct and progressively deeper spatial capability.
+            </p>
+          </motion.div>
+
+          {/* Figure 2: Construction Pipeline */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
             className="text-center"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Construction Pipeline</h3>
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
               <img
                 src="/assets/figure2-pipeline.png"
-                alt="Figure 2: SSC-Bench construction pipeline"
+                alt="Figure 2: Four-phase construction pipeline of SSC-Bench"
                 className="w-full h-auto"
               />
             </div>
             <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
-              <span className="font-semibold text-gray-700">Figure 2:</span> Construction pipeline of SSC-Bench. The pipeline transforms curated
-              three-view problems (sourced from Gaokao engineering exams) through standardized visual
-              redrawing into benchmark instances across the three task types.
+              <span className="font-semibold text-gray-700">Figure 2:</span> Four-phase construction pipeline of SSC-Bench. Source questions from GaoKao
+              engineering exams are processed by curator, redrawing, conversion, and refiner agents to produce
+              standardized benchmark instances across all three task types.
             </p>
           </motion.div>
 
