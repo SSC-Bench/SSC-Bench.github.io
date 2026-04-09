@@ -6,7 +6,6 @@ import KeyFindings from './components/KeyFindings';
 import Results from './components/Results';
 import CvcCot from './components/CvcCot';
 import Download from './components/Download';
-import Citation from './components/Citation';
 import Footer from './components/Footer';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
       <Results />
       <CvcCot />
       <Download />
-      <Citation />
       <Footer />
     </div>
   );

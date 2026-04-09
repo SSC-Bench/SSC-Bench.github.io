@@ -312,7 +312,7 @@ const Results = () => {
             >
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
                 <ReactECharts
-                  style={{ height: 420 }}
+                  style={{ height: 460 }}
                   option={{
                     tooltip: {
                       trigger: 'axis',
@@ -324,37 +324,45 @@ const Results = () => {
                           'GLM-4.6V','Claude Opus 4.6','Mistral Large 2512',
                         ];
                         const idx = params[0].dataIndex;
+                        const relevant = params.filter(p => !p.seriesName.startsWith('_'));
                         return `<b>${params[0].axisValue} · ${models[idx]}</b><br/>${
-                          params.map(p => `${p.marker}${p.seriesName}: <b>${p.value}%</b>`).join('<br/>')
+                          relevant.map(p => `${p.marker}${p.seriesName}: <b>${p.value}%</b>`).join('<br/>')
                         }`;
                       },
                     },
                     legend: {
-                      data: ['Basic Prompt', 'CVC-CoT'],
+                      data: ['Basic prompt', 'CVC-CoT', 'Random-guess baseline (25%)'],
                       top: 8,
-                      itemStyle: {},
                       textStyle: { fontSize: 13 },
+                      icon: 'none',
+                      formatter: (name) => name,
                     },
-                    grid: { left: 48, right: 24, top: 48, bottom: 40 },
+                    grid: { left: 56, right: 24, top: 56, bottom: 44 },
                     xAxis: {
                       type: 'category',
                       data: ['M1','M2','M3','M4','M5','M6','M7','M8','M9'],
                       axisLabel: { fontSize: 13, fontWeight: 'bold' },
+                      axisTick: { alignWithLabel: true },
                     },
                     yAxis: {
                       type: 'value',
                       name: 'Accuracy (%)',
+                      nameLocation: 'middle',
+                      nameGap: 44,
                       min: 0, max: 65,
                       interval: 10,
                       axisLabel: { formatter: '{value}' },
-                      splitLine: { lineStyle: { type: 'dashed', color: '#e5e7eb' } },
+                      splitLine: { lineStyle: { type: 'dashed', color: '#d1d5db' } },
                     },
                     series: [
+                      // ── Light bars (Basic) ──────────────────────────────
                       {
-                        name: 'Basic Prompt',
+                        name: '_basic_bar',
                         type: 'bar',
-                        barGap: '10%',
-                        barCategoryGap: '35%',
+                        barGap: '8%',
+                        barCategoryGap: '32%',
+                        silent: true,
+                        legendHoverLink: false,
                         data: [
                           { value: 38, itemStyle: { color: '#93c5fd' } },
                           { value: 32, itemStyle: { color: '#fdba74' } },
@@ -362,15 +370,18 @@ const Results = () => {
                           { value: 30, itemStyle: { color: '#fca5a5' } },
                           { value: 30, itemStyle: { color: '#c4b5fd' } },
                           { value: 32, itemStyle: { color: '#67e8f9' } },
-                          { value: 24, itemStyle: { color: '#fcd34d' } },
+                          { value: 24, itemStyle: { color: '#fde68a' } },
                           { value: 26, itemStyle: { color: '#d1d5db' } },
                           { value: 20, itemStyle: { color: '#a7f3d0' } },
                         ],
-                        label: { show: true, position: 'top', fontSize: 11, formatter: '{c}%' },
+                        label: { show: true, position: 'top', fontSize: 10.5, color: '#374151', formatter: '{c}%' },
                       },
+                      // ── Dark bars (CoT) ─────────────────────────────────
                       {
-                        name: 'CVC-CoT',
+                        name: '_cot_bar',
                         type: 'bar',
+                        silent: true,
+                        legendHoverLink: false,
                         data: [
                           { value: 58, itemStyle: { color: '#2563eb' } },
                           { value: 40, itemStyle: { color: '#ea580c' } },
@@ -382,15 +393,39 @@ const Results = () => {
                           { value: 28, itemStyle: { color: '#4b5563' } },
                           { value: 16, itemStyle: { color: '#059669' } },
                         ],
-                        label: { show: true, position: 'top', fontSize: 11, formatter: '{c}%' },
+                        label: { show: true, position: 'top', fontSize: 10.5, color: '#374151', formatter: '{c}%' },
                       },
+                      // ── Solid line: Basic prompt ─────────────────────────
+                      {
+                        name: 'Basic prompt',
+                        type: 'line',
+                        data: [38, 32, 34, 30, 30, 32, 24, 26, 20],
+                        symbol: 'circle',
+                        symbolSize: 9,
+                        lineStyle: { type: 'solid', color: '#111827', width: 2 },
+                        itemStyle: { color: '#111827' },
+                        z: 10,
+                      },
+                      // ── Dashed line: CVC-CoT ────────────────────────────
+                      {
+                        name: 'CVC-CoT',
+                        type: 'line',
+                        data: [58, 40, 56, 28, 32, 38, 24, 28, 16],
+                        symbol: 'rect',
+                        symbolSize: 9,
+                        lineStyle: { type: 'dashed', color: '#111827', width: 2 },
+                        itemStyle: { color: '#111827' },
+                        z: 10,
+                      },
+                      // ── Dotted reference line at 25% ────────────────────
                       {
                         name: 'Random-guess baseline (25%)',
                         type: 'line',
-                        data: [25,25,25,25,25,25,25,25,25],
+                        data: [25, 25, 25, 25, 25, 25, 25, 25, 25],
                         symbol: 'none',
                         lineStyle: { type: 'dotted', color: '#6b7280', width: 2 },
-                        tooltip: { show: false },
+                        itemStyle: { color: '#6b7280' },
+                        z: 5,
                       },
                     ],
                   }}
