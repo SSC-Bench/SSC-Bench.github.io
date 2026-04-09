@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { Trophy } from 'lucide-react';
+import ReactECharts from 'echarts-for-react';
 
 // ── Task 1: Binary View Selection ─────────────────────────────────────────────
 const task1Basic = [
@@ -300,7 +301,7 @@ const Results = () => {
             </motion.p>
           )}
 
-          {/* Figure 4: Task 1 Accuracy Bar Chart */}
+          {/* Figure 4: Task 1 Accuracy — Interactive ECharts */}
           {activeTab === 'task1' && (
             <motion.div
               key="fig4"
@@ -309,17 +310,97 @@ const Results = () => {
               transition={{ duration: 0.5 }}
               className="text-center"
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
-                <img
-                  src="/assets/figure4-task1-results.png"
-                  alt="Figure 4: Comparison of Task 1 accuracy across models under Basic Prompt and CVC-CoT"
-                  className="w-full h-auto"
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
+                <ReactECharts
+                  style={{ height: 420 }}
+                  option={{
+                    tooltip: {
+                      trigger: 'axis',
+                      axisPointer: { type: 'shadow' },
+                      formatter: (params) => {
+                        const models = [
+                          'GPT-5.4','Doubao-Seed-2.0-pro','Gemini 3.1 Pro',
+                          'Grok 4.20','Qwen2.5-VL-72B','o3-pro',
+                          'GLM-4.6V','Claude Opus 4.6','Mistral Large 2512',
+                        ];
+                        const idx = params[0].dataIndex;
+                        return `<b>${params[0].axisValue} · ${models[idx]}</b><br/>${
+                          params.map(p => `${p.marker}${p.seriesName}: <b>${p.value}%</b>`).join('<br/>')
+                        }`;
+                      },
+                    },
+                    legend: {
+                      data: ['Basic Prompt', 'CVC-CoT'],
+                      top: 8,
+                      itemStyle: {},
+                      textStyle: { fontSize: 13 },
+                    },
+                    grid: { left: 48, right: 24, top: 48, bottom: 40 },
+                    xAxis: {
+                      type: 'category',
+                      data: ['M1','M2','M3','M4','M5','M6','M7','M8','M9'],
+                      axisLabel: { fontSize: 13, fontWeight: 'bold' },
+                    },
+                    yAxis: {
+                      type: 'value',
+                      name: 'Accuracy (%)',
+                      min: 0, max: 65,
+                      interval: 10,
+                      axisLabel: { formatter: '{value}' },
+                      splitLine: { lineStyle: { type: 'dashed', color: '#e5e7eb' } },
+                    },
+                    series: [
+                      {
+                        name: 'Basic Prompt',
+                        type: 'bar',
+                        barGap: '10%',
+                        barCategoryGap: '35%',
+                        data: [
+                          { value: 38, itemStyle: { color: '#93c5fd' } },
+                          { value: 32, itemStyle: { color: '#fdba74' } },
+                          { value: 34, itemStyle: { color: '#86efac' } },
+                          { value: 30, itemStyle: { color: '#fca5a5' } },
+                          { value: 30, itemStyle: { color: '#c4b5fd' } },
+                          { value: 32, itemStyle: { color: '#67e8f9' } },
+                          { value: 24, itemStyle: { color: '#fcd34d' } },
+                          { value: 26, itemStyle: { color: '#d1d5db' } },
+                          { value: 20, itemStyle: { color: '#a7f3d0' } },
+                        ],
+                        label: { show: true, position: 'top', fontSize: 11, formatter: '{c}%' },
+                      },
+                      {
+                        name: 'CVC-CoT',
+                        type: 'bar',
+                        data: [
+                          { value: 58, itemStyle: { color: '#2563eb' } },
+                          { value: 40, itemStyle: { color: '#ea580c' } },
+                          { value: 56, itemStyle: { color: '#16a34a' } },
+                          { value: 28, itemStyle: { color: '#dc2626' } },
+                          { value: 32, itemStyle: { color: '#7c3aed' } },
+                          { value: 38, itemStyle: { color: '#0891b2' } },
+                          { value: 24, itemStyle: { color: '#d97706' } },
+                          { value: 28, itemStyle: { color: '#4b5563' } },
+                          { value: 16, itemStyle: { color: '#059669' } },
+                        ],
+                        label: { show: true, position: 'top', fontSize: 11, formatter: '{c}%' },
+                      },
+                      {
+                        name: 'Random-guess baseline (25%)',
+                        type: 'line',
+                        data: [25,25,25,25,25,25,25,25,25],
+                        symbol: 'none',
+                        lineStyle: { type: 'dotted', color: '#6b7280', width: 2 },
+                        tooltip: { show: false },
+                      },
+                    ],
+                  }}
                 />
               </div>
               <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
                 <span className="font-semibold text-gray-700">Figure 4:</span> Task 1 accuracy for all nine models under Basic Prompt and CVC-CoT.
                 The dotted line marks the random-guess baseline (25%). CVC-CoT provides notable gains
                 for stronger models (GPT-5.4: 38%→58%, Gemini: 34%→56%) but offers limited benefit for weaker ones.
+                Hover over bars to see model names.
               </p>
             </motion.div>
           )}

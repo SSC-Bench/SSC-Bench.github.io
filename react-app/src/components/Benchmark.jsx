@@ -113,7 +113,7 @@ const Benchmark = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-center"
           >
-            <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-2xl mx-auto">
               <img
                 src="/assets/figure1-teaser.png"
                 alt="Figure 1: Illustration of SSC-Bench — from ambiguous end-to-end evaluation to progressive structural reasoning"
@@ -227,9 +227,10 @@ const Benchmark = () => {
               />
             </div>
             <p className="mt-3 text-sm text-gray-500 italic max-w-3xl mx-auto">
-              <span className="font-semibold text-gray-700">Figure 2:</span> Four-phase construction pipeline of SSC-Bench. Source questions from GaoKao
-              engineering exams are processed by curator, redrawing, conversion, and refiner agents to produce
-              standardized benchmark instances across all three task types.
+              <span className="font-semibold text-gray-700">Figure 2:</span> Construction pipeline of SSC-Bench.
+              Stage 1 provides standardized three-view inputs via orthographic projection and selective hiding.
+              Stage 2 prompts MLLMs to generate executable Python code for Understanding (Task 2) and Reasoning (Task 3).
+              Stage 3 evaluates outputs using SSU and SSR metrics.
             </p>
           </motion.div>
 
