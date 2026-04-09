@@ -12,7 +12,7 @@ const Download = () => {
       icon: Database,
       title: 'Dataset',
       description:
-        '200 high-quality three-view projection cases with ground-truth Python rendering code and spatial reasoning annotations.',
+        '150 three-view projection questions (750 images) uniformly redrawn from standardized engineering exams, organized across three task types.',
       link: 'https://github.com/SSC-Bench/ssc-bench-data',
       linkText: 'View on GitHub →',
     },
@@ -20,7 +20,7 @@ const Download = () => {
       icon: Code,
       title: 'Evaluation Code',
       description:
-        'Complete evaluation pipeline including metrics computation, visualization tools, and model interface templates.',
+        'Complete evaluation pipeline including strict/lenient metric computation, CVC-CoT prompting framework, and model interface templates.',
       link: 'https://github.com/SSC-Bench/ssc-bench-data',
       linkText: 'View on GitHub →',
     },
@@ -28,7 +28,7 @@ const Download = () => {
       icon: FileText,
       title: 'Technical Report',
       description:
-        'Detailed methodology, experimental setup, complete results tables, and comprehensive analysis of all evaluated models.',
+        'Full paper with methodology, experimental results across all three tasks, CVC-CoT analysis, and nine-model comparison tables.',
       link: 'https://github.com/SSC-Bench/ssc-bench-data',
       linkText: 'View on GitHub →',
     },

@@ -27,6 +27,10 @@ yarn-error.log*
 *.swo
 *~
 
+# New data and experiment results (local only, not for version control)
+new_data_method/
+Lost in Space.pdf
+
 # Old template files (keep for reference if needed, or delete)
 # Uncomment the next lines to ignore old HTML template
 # index.html

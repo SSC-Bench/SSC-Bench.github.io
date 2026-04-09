@@ -4,8 +4,9 @@ import Stats from './components/Stats';
 import Benchmark from './components/Benchmark';
 import KeyFindings from './components/KeyFindings';
 import Results from './components/Results';
-import ScalingLaw from './components/ScalingLaw';
+import CvcCot from './components/CvcCot';
 import Download from './components/Download';
+import Citation from './components/Citation';
 import Footer from './components/Footer';
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
       <Benchmark />
       <KeyFindings />
       <Results />
-      <ScalingLaw />
+      <CvcCot />
       <Download />
+      <Citation />
       <Footer />
     </div>
   );
